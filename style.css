@@ -91,7 +91,7 @@ section .container .user .formBx form input {
   font-weight: 300;
 }
 
-section .container .user .formBx form button {
+section .container .user .formBx form button, button {
   background: #677eff;
   color: #fff;
   cursor: pointer;
@@ -160,6 +160,21 @@ section .container .signinBx .imgBx {
 
 section .container.active .signinBx .imgBx {
   left: -100%;
+}
+
+
+section.secMain .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: unset;
+  padding: 50px;
+}
+section.secMain .container h1.head {
+  font-size: 40px;
+  line-height: 60px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 991px) {
