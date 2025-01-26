@@ -19,7 +19,7 @@ section {
 
 section .container {
   position: relative;
-  width: 50%;
+  width: 70%;
   height: 500px;
   background: #fff;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
@@ -55,9 +55,9 @@ section .container .user .imgBx img {
 
 section .container .user .formBx {
   position: relative;
-  width: 70%;
+  width: 50%;
   height: 100%;
-  background: #fff;
+  backgrou5d: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
