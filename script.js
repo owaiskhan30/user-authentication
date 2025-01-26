@@ -13,9 +13,10 @@ const reg_from = document.querySelector(".reg_from");
 const login_email = document.querySelector(".login_email");
 const login_password = document.querySelector(".login_password");
 const login_form = document.querySelector(".login_form");
+const google_Btn = document.querySelector(".google_Btn");
 
 
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { auth } from "./firebaseconfig.js";
 
 reg_from.addEventListener('submit', function (event) {
@@ -40,14 +41,29 @@ reg_from.addEventListener('submit', function (event) {
 
 
 login_form.addEventListener("submit", function (event) {
-event.preventDefault();
-signInWithEmailAndPassword(auth, login_email.value, login_password.value)
-    .then((userCredential) => {
-        const user = userCredential.user;
-        window.location = "index.html";
-    })
-    .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-    });
+    event.preventDefault();
+    signInWithEmailAndPassword(auth, login_email.value, login_password.value)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            window.location = "index.html";
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            console.log(errorMessage);
+        });
+});
+
+const provider = new GoogleAuthProvider();
+
+google_Btn.addEventListener("click", function () {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            window.location = "index.html";
+        }).catch((error) => {
+            const errorMessage = error.message;
+            console.log(errorMessage);
+        });
 });
