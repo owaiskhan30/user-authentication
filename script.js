@@ -19,6 +19,9 @@ const google_Btn = document.querySelector(".google_Btn");
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { auth } from "./firebaseconfig.js";
 
+
+//  Register With Email And Password
+
 reg_from.addEventListener('submit', function (event) {
     event.preventDefault();
     createUserWithEmailAndPassword(auth, reg_email.value, reg_password.value)
@@ -40,6 +43,8 @@ reg_from.addEventListener('submit', function (event) {
 });
 
 
+//  Login With Email And Password
+
 login_form.addEventListener("submit", function (event) {
     event.preventDefault();
     signInWithEmailAndPassword(auth, login_email.value, login_password.value)
@@ -53,8 +58,10 @@ login_form.addEventListener("submit", function (event) {
         });
 });
 
-const provider = new GoogleAuthProvider();
 
+//  Google Login
+
+const provider = new GoogleAuthProvider();
 google_Btn.addEventListener("click", function () {
     signInWithPopup(auth, provider)
         .then((result) => {
