@@ -237,7 +237,10 @@ section.secMain .todosRender::-webkit-scrollbar-thumb {
 section.secMain .todosRender::-webkit-scrollbar-thumb:hover {
   background: #f8dd30; 
 }
-
+button.sub_btn.disable {
+  opacity: 0.6;
+  pointer-events: none;
+}
 @media (max-width: 991px) {
   section .container {
     max-width: 400px;
